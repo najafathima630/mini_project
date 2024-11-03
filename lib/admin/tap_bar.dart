@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'admin_home1.dart';
 import 'admin_homeuser.dart';
@@ -8,7 +9,7 @@ class Admin_tabbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3, // Number of tabs
+      length: 2, // Number of tabs
       child: Scaffold(
         appBar: AppBar(backgroundColor: Color(0xffE8F1FF),
           leading: CircleAvatar(
@@ -19,7 +20,7 @@ class Admin_tabbar extends StatelessWidget {
             unselectedLabelColor: Colors.black,
             indicatorSize: TabBarIndicatorSize.tab,
             indicator: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               color: Colors.indigoAccent,
             ),
             tabs: [
@@ -28,7 +29,7 @@ class Admin_tabbar extends StatelessWidget {
                   'User',
                   style: TextStyle(
                     // color: Colors.white,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
                     height: 0,
@@ -40,7 +41,7 @@ class Admin_tabbar extends StatelessWidget {
                   'Mechanic',
                   style: TextStyle(
                     // color: Colors.white,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
                     height: 0,

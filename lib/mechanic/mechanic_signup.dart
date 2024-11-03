@@ -35,7 +35,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
           backgroundColor: Color(0xffCFE2FF),
           body: Form(
               key: form_key,
-              child: Column(
+              child: ListView(
                 children: [
                   Row(
                     children: [
@@ -66,7 +66,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10.h, left: 40.w),
+                        padding: EdgeInsets.only(top: 3.h, left: 40.w),
                         child: Text(
                           "Enter Username",
                           style: GoogleFonts.poppins(
@@ -79,7 +79,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsets.only(left: 40.w, top: 10.h, right: 40.r),
+                        EdgeInsets.only(left: 40.w, top: 3.h, right: 40.r),
                     child: TextFormField(
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -102,9 +102,9 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10.h, left: 40.w),
+                        padding: EdgeInsets.only(top: 3.h, left: 40.w),
                         child: Text(
-                          "Enter Password",
+                          "Enter phone number",
                           style: GoogleFonts.poppins(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -115,11 +115,11 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsets.only(right: 40.r, left: 40.w, top: 10.h),
+                        EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Empty password";
+                          return "Empty number";
                         }
                       },
                       decoration: InputDecoration(
@@ -129,7 +129,43 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         )),
                         prefixIconColor: Colors.white,
                         suffixIconColor: Colors.white,
-                        hintText: "Enter password",
+                        hintText: "Enter your phone number",
+                        filled: true,
+                      ),
+                      obscureText: true,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 3.h, left: 40.w),
+                        child: Text(
+                          "Enter Your Email",
+                          style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.sp),
+                        ),
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Empty mail";
+                        }
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(
+                          10.sp,
+                        )),
+                        prefixIconColor: Colors.white,
+                        suffixIconColor: Colors.white,
+                        hintText: "Enter mail",
                         filled: true,
                       ),
                       obscureText: true,
@@ -137,7 +173,75 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   ),Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10.h, left: 40.w),
+                        padding: EdgeInsets.only(top: 3.h, left: 40.w),
+                        child: Text(
+                          "Enter Your work experience",
+                          style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.sp),
+                        ),
+                      )
+                    ],
+                  ),Padding(
+                    padding:
+                    EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Empty experience";
+                        }
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(
+                              10.sp,
+                            )),
+                        prefixIconColor: Colors.white,
+                        suffixIconColor: Colors.white,
+                        hintText: "Enter your experience",
+                        filled: true,
+                      ),
+                      obscureText: true,
+                    ),
+                  ),Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 3.h, left: 40.w),
+                        child: Text(
+                          "Enter Your work shop name",
+                          style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.sp),
+                        ),
+                      )
+                    ],
+                  ),Padding(
+                    padding:
+                    EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Empty name";
+                        }
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(
+                              10.sp,
+                            )),
+                        prefixIconColor: Colors.white,
+                        suffixIconColor: Colors.white,
+                        hintText: "Enter your shop name",
+                        filled: true,
+                      ),
+                      obscureText: true,
+                    ),
+                  ),Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 3.h, left: 40.w),
                         child: Text(
                           "Enter Password",
                           style: GoogleFonts.poppins(
@@ -147,6 +251,27 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         ),
                       )
                     ],
+                  ), Padding(
+                    padding:
+                    EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Empty password";
+                        }
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(
+                              10.sp,
+                            )),
+                        prefixIconColor: Colors.white,
+                        suffixIconColor: Colors.white,
+                        hintText: "Enter password",
+                        filled: true,
+                      ),
+                      obscureText: true,
+                    ),
                   ),
                   InkWell(
                     onTap: () {
@@ -162,7 +287,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                     },
                     child: Padding(
                       padding:
-                          EdgeInsets.only(right: 80.r, left: 80.w, top: 300.h),
+                          EdgeInsets.only(right: 80.r, left: 80.w, top: 50.h),
                       child: Container(
                         child: Center(
                           child: Text(

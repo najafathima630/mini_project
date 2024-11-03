@@ -10,6 +10,7 @@ import 'admin/admin_notification.dart';
 import 'admin/admin_payment.dart';
 import 'admin/admin_user.dart';
 import 'admin/tap_bar.dart';
+import 'mechanic/mech_service_home.dart';
 import 'mechanic/mechanic_login.dart';
 import 'mechanic/mechanic_signup.dart';
 
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                 useMaterial3: true,
               ),
-              home: MechanicSignup(),
+              home: mech_service_home(),
             ));
   }
 }
