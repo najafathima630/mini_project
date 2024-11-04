@@ -23,7 +23,7 @@ class mech_service_home extends StatelessWidget {
               height: 30.h,
               width: 30.w,
               decoration: BoxDecoration(
-                  color: Colors.black,
+                  color: Colors.white,
                   image: DecorationImage(
                       image: AssetImage("Assets/notification 2.png"))),
             )
