@@ -74,9 +74,9 @@ class _MechRatingState extends State<MechRating> {
                                 children: [
                                   Padding(
                                     padding:
-                                        EdgeInsets.only(left: 1.w, top: 30.h),
+                                        EdgeInsets.only(left: 10.w, top: 30.h),
                                     child: Text(
-                                      "Engine work",
+                                      "engine work",
                                       style: GoogleFonts.poppins(
                                           fontSize: 16.sp,
                                           fontWeight: FontWeight.w500),
@@ -88,7 +88,7 @@ class _MechRatingState extends State<MechRating> {
                                 children: [
                                   Padding(
                                     padding:
-                                        EdgeInsets.only(left: 50.w, top: 10.h),
+                                        EdgeInsets.only(left: 1.w, top: 10.h),
                                     child: Text(
                                       "Date",
                                       style: GoogleFonts.poppins(
@@ -96,49 +96,6 @@ class _MechRatingState extends State<MechRating> {
                                           fontWeight: FontWeight.w500),
                                     ),
                                   ),
-                                  Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsets.only(left: 30.w),
-                                            child: Text(
-                                              "Rating",
-                                              style: GoogleFonts.poppins(
-                                                  fontSize: 16.sp,
-                                                  fontWeight: FontWeight.w500),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Icon(
-                                            Icons.star,
-                                            color: Colors.yellow,
-                                          ),
-                                          Icon(
-                                            Icons.star,
-                                            color: Colors.yellow,
-                                          ),
-                                          Icon(
-                                            Icons.star,
-                                            color: Colors.yellow,
-                                          ),
-                                          Icon(
-                                            Icons.star,
-                                            color: Colors.yellow,
-                                          ),
-                                          Icon(
-                                            Icons.star_border,
-                                            color: Colors.black,
-                                          )
-                                        ],
-                                      ),
-                                     
-                                    ],
-                                  )
                                 ],
                               ),
                               Row(
@@ -166,6 +123,58 @@ class _MechRatingState extends State<MechRating> {
                                           fontSize: 16.sp,
                                           fontWeight: FontWeight.w500),
                                     ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    "Rating",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 10.sp,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 20.sp,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 20.sp,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 20.sp,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 20.sp,
+                                  ),
+                                  Icon(
+                                    Icons.star_border,
+                                    size: 20.sp,
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "4/5",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: 11.sp,
+                                        fontWeight: FontWeight.w600),
                                   ),
                                 ],
                               )

@@ -78,8 +78,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                     ],
                   ),
                   Padding(
-                    padding:
-                        EdgeInsets.only(left: 40.w, top: 3.h, right: 40.r),
+                    padding: EdgeInsets.only(left: 40.w, top: 3.h, right: 40.r),
                     child: TextFormField(
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -114,8 +113,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                     ],
                   ),
                   Padding(
-                    padding:
-                        EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -150,8 +148,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                     ],
                   ),
                   Padding(
-                    padding:
-                        EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -170,7 +167,8 @@ class _MechanicSignupState extends State<MechanicSignup> {
                       ),
                       obscureText: true,
                     ),
-                  ),Row(
+                  ),
+                  Row(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 3.h, left: 40.w),
@@ -183,9 +181,9 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         ),
                       )
                     ],
-                  ),Padding(
-                    padding:
-                    EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -195,8 +193,8 @@ class _MechanicSignupState extends State<MechanicSignup> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(
-                              10.sp,
-                            )),
+                          10.sp,
+                        )),
                         prefixIconColor: Colors.white,
                         suffixIconColor: Colors.white,
                         hintText: "Enter your experience",
@@ -204,7 +202,8 @@ class _MechanicSignupState extends State<MechanicSignup> {
                       ),
                       obscureText: true,
                     ),
-                  ),Row(
+                  ),
+                  Row(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 3.h, left: 40.w),
@@ -217,9 +216,9 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         ),
                       )
                     ],
-                  ),Padding(
-                    padding:
-                    EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -229,8 +228,8 @@ class _MechanicSignupState extends State<MechanicSignup> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(
-                              10.sp,
-                            )),
+                          10.sp,
+                        )),
                         prefixIconColor: Colors.white,
                         suffixIconColor: Colors.white,
                         hintText: "Enter your shop name",
@@ -238,7 +237,8 @@ class _MechanicSignupState extends State<MechanicSignup> {
                       ),
                       obscureText: true,
                     ),
-                  ),Row(
+                  ),
+                  Row(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 3.h, left: 40.w),
@@ -251,9 +251,9 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         ),
                       )
                     ],
-                  ), Padding(
-                    padding:
-                    EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -263,8 +263,8 @@ class _MechanicSignupState extends State<MechanicSignup> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(
-                              10.sp,
-                            )),
+                          10.sp,
+                        )),
                         prefixIconColor: Colors.white,
                         suffixIconColor: Colors.white,
                         hintText: "Enter password",
@@ -291,7 +291,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                       child: Container(
                         child: Center(
                           child: Text(
-                            "Login",
+                            "SIGN UP",
                             style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 18.sp,
@@ -301,7 +301,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         width: 200.w,
                         height: 50.h,
                         decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: Color(0xff2357D9),
                             borderRadius: BorderRadius.circular(10.sp)),
                       ),
                     ),
