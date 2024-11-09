@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../admin/admin_home1.dart';
+import '../admin/admin_home_mechanic.dart';
 import '../admin/admin_homeuser.dart';
 import 'meach_service_home2.dart';
 import 'mech_service_home1.dart';

@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mini_project/user/user_login.dart';
+import 'package:mini_project/user/user_mechanic_detaile_page.dart';
+import 'package:mini_project/user/user_mechanic_list.dart';
+import 'package:mini_project/user/user_notification.dart';
+import 'package:mini_project/user/user_payment.dart';
+import 'package:mini_project/user/user_profile.dart';
+import 'package:mini_project/user/user_rating_page.dart';
 
 import 'admin/Login_page.dart';
 import 'admin/Navigation_bar.dart';
 import 'admin/admin_addnotification.dart';
+import 'admin/admin_home_mechanic.dart';
 import 'admin/admin_homeuser.dart';
 import 'admin/admin_mechanic.dart';
 import 'admin/admin_notification.dart';
@@ -12,6 +19,7 @@ import 'admin/admin_payment.dart';
 import 'admin/admin_user.dart';
 import 'admin/tap_bar.dart';
 import 'mechanic/Navigationbar_mechanic.dart';
+import 'mechanic/mech_edit_profile.dart';
 import 'mechanic/mech_profile.dart';
 import 'mechanic/mech_rating.dart';
 import 'mechanic/mech_service.dart';
@@ -58,7 +66,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                 useMaterial3: true,
               ),
-              home: MechStatuscompleted(),
+              home: UserPayment(),
             ));
   }
 }

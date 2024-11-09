@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'admin_home1.dart';
+import 'admin_home_mechanic.dart';
 import 'admin_homeuser.dart';
 
 class Admin_tabbar extends StatelessWidget {

@@ -306,7 +306,7 @@ class _MechStatuscompletedState extends State<MechStatuscompleted> {
                     print("object");
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) {
-                        return MechStatusReject();
+                        return MechStatuscompleted();
                       },
                     ));
                     ;

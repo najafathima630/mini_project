@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Navigation_bar.dart';
+
 class AdminAddnotification extends StatefulWidget {
   const AdminAddnotification({super.key});
 
@@ -14,12 +16,16 @@ class _AdminAddnotificationState extends State<AdminAddnotification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffbacE8F1FF),
+      backgroundColor: Color(0xffE8F1FF),
       appBar: AppBar(
         backgroundColor: Color(0xffbacE8F1FF),
         leading: IconButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) {
+                return navigation_bar();
+              },
+            ));
           },
           icon: Icon(Icons.arrow_back_ios_new_sharp),
         ),
@@ -94,14 +100,17 @@ class _AdminAddnotificationState extends State<AdminAddnotification> {
                     color: Color(0xffbacFFFFFF)),
               )
             ],
-          ),Padding(
-            padding: EdgeInsets.only(right: 80.r, left: 80.w, top: 130.h),
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 80.r, left: 80.w, top: 80.h),
             child: Container(
               child: Center(
                 child: Text(
                   "Submit",
                   style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w700, fontSize: 18.sp,color: Colors.white),
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18.sp,
+                      color: Colors.white),
                 ),
               ),
               width: 200.w,

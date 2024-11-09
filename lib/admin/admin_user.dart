@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mini_project/admin/tap_bar.dart';
 
 import 'admin_homeuser.dart';
 
@@ -29,7 +30,11 @@ class _AdminUserState extends State<AdminUser> {
                       children: [
                         IconButton(
                             onPressed: () {
-                              Navigator.of(context).pop();
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) {
+                                  return Admin_tabbar();
+                                },
+                              ));
                             },
                             icon: Icon(Icons.arrow_back_ios_new_sharp))
                       ],
@@ -39,13 +44,13 @@ class _AdminUserState extends State<AdminUser> {
                         Row(
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(left: 110.w),
-                              child: Container(
-                                width: 150.w,
-                                height: 150.h,
-                                color: Colors.blue[100],
-                              ),
-                            )
+                                padding: EdgeInsets.only(left: 110.w),
+                                child: CircleAvatar(
+                                  radius: 70.r,
+                                  backgroundColor: Color(0xffE8F1FF),
+                                  backgroundImage:
+                                      AssetImage("Assets/man3.png"),
+                                )),
                           ],
                         ),
                         Row(

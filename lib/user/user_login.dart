@@ -1,31 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:mini_project/user/user_sign_up.dart';
 
-import 'Navigation_bar.dart';
-import 'admin_homeuser.dart';
+import '../admin/Navigation_bar.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class UserLogin extends StatefulWidget {
+  const UserLogin({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<UserLogin> createState() => _UserLoginState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _UserLoginState extends State<UserLogin> {
   final form_key = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffCFE2FF),
       body: Form(
           key: form_key,
-          child: ListView(
+          child: Column(
             children: [
               Row(
                 children: [
@@ -140,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: EdgeInsets.only(right: 80.r, left: 80.w, top: 130.h),
                   child: Container(
                     child: Padding(
-                      padding: EdgeInsets.only(left: 100.w, top: 10.h),
+                      padding: EdgeInsets.only(left: 70.w, top: 10.h),
                       child: Text(
                         "Login",
                         style: GoogleFonts.poppins(
@@ -156,6 +152,32 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(10.sp)),
                   ),
                 ),
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 90.w),
+                    child: Text(
+                      "Do you have account?",
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14.sp,
+                          color: Colors.black),
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return UserSignUp();
+                          },
+                        ));
+                      },
+                      child: Text(
+                        "Sign up",
+                        style: GoogleFonts.poppins(color: Colors.blue),
+                      ))
+                ],
               )
             ],
           )),
