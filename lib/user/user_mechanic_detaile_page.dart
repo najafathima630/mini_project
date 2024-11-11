@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mini_project/user/user_mechanic_list_appbar.dart';
 
 class UserMechanicDetailePage extends StatefulWidget {
   const UserMechanicDetailePage({super.key});
@@ -201,21 +202,29 @@ class _UserMechanicDetailePageState extends State<UserMechanicDetailePage> {
             ),
           ]), Padding(
             padding: EdgeInsets.only(right: 80.r, left: 80.w, top: 40.h),
-            child: Container(
-              child: Center(
-                child: Text(
-                  "Rquest",
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18.sp,
-                      color: Colors.white),
+            child: InkWell(onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) {
+                  return UserMechanicList();
+                },
+              ));
+            },
+              child: Container(
+                child: Center(
+                  child: Text(
+                    "Rquest",
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18.sp,
+                        color: Colors.white),
+                  ),
                 ),
+                width: 200.w,
+                height: 50.h,
+                decoration: BoxDecoration(
+                    color: Color(0xff2357D9),
+                    borderRadius: BorderRadius.circular(10.sp)),
               ),
-              width: 200.w,
-              height: 50.h,
-              decoration: BoxDecoration(
-                  color: Color(0xff2357D9),
-                  borderRadius: BorderRadius.circular(10.sp)),
             ),
           ),
         ]));

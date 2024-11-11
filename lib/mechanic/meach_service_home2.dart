@@ -11,7 +11,6 @@ class MeachServiceHome2 extends StatefulWidget {
 }
 
 class _MeachServiceHome2State extends State<MeachServiceHome2> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

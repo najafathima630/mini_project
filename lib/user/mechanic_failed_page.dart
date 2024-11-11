@@ -2,16 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mini_project/user/user_mechanic_list_appbar.dart';
 
-class UserRatingPage extends StatefulWidget {
-  const UserRatingPage({super.key});
+class MechanicFailedPage extends StatefulWidget {
+  const MechanicFailedPage({super.key});
 
   @override
-  State<UserRatingPage> createState() => _UserRatingPageState();
+  State<MechanicFailedPage> createState() => _MechanicFailedPageState();
 }
 
-class _UserRatingPageState extends State<UserRatingPage> {
+class _MechanicFailedPageState extends State<MechanicFailedPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +24,7 @@ class _UserRatingPageState extends State<UserRatingPage> {
           title: Padding(
             padding: EdgeInsets.only(left: 70.w),
             child: Text(
-              "Your rating",
+              "Mechanic Bill",
               style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w400, fontSize: 20.sp),
             ),
@@ -123,78 +122,63 @@ class _UserRatingPageState extends State<UserRatingPage> {
                 color: Colors.yellow,
                 size: 30.sp,
               ),
+              Icon(
+                CupertinoIcons.pencil,
+                color: Colors.black,
+                size: 30.sp,
+              ),
             ],
           ),
           Row(
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 50.w, top: 40.h),
+                padding: EdgeInsets.only(left: 50.w, top: 50.h),
                 child: Text(
-                  "Add rating",
+                  "Failed reason",
                   style: GoogleFonts.poppins(
-                      fontSize: 16.sp, fontWeight: FontWeight.w400),
+                      fontSize: 20.sp, fontWeight: FontWeight.w500),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 40.w, top: 50.h),
+                child: Container(
+                  child: Text(
+                    "Failed reson show",
+                    style: GoogleFonts.poppins(color: Colors.grey),
+                  ),
+                  height: 146.h,
+                  width: 305.w,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 1.w,
+                      ),
+                      borderRadius: BorderRadius.circular(12.r)),
                 ),
               )
             ],
-          ),
-          Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 80.w),
-                child: Icon(
-                  Icons.star_border,
-                  color: Colors.black,
-                  size: 50.sp,
+          ),Padding(
+            padding:
+            EdgeInsets.only(right: 80.r, left: 60.w, top: 70.h),
+            child: Container(
+              child: Center(
+                child: Text(
+                  "Ok",
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18.sp,
+                      color: Colors.white),
                 ),
               ),
-              Icon(
-                Icons.star_border,
-                color: Colors.black,
-                size: 50.sp,
-              ),
-              Icon(
-                Icons.star_border,
-                color: Colors.black,
-                size: 50.sp,
-              ),
-              Icon(
-                Icons.star_border,
-                color: Colors.black,
-                size: 50.sp,
-              ),
-              Icon(
-                Icons.star_border,
-                color: Colors.black,
-                size: 50.sp,
-              ),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 80.r, left: 80.w, top: 130.h),
-            child: InkWell(onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) {
-                  return UserMechanicList();
-                },
-              ));
-            },
-              child: Container(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 60.w, top: 10.h),
-                  child: Text(
-                    "Submit",
-                    style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18.sp,
-                        color: Colors.white),
-                  ),
-                ),
-                width: 200.w,
-                height: 50.h,
-                decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(10.sp)),
-              ),
+              width: 249.w,
+              height: 50.h,
+              decoration: BoxDecoration(
+                  color: Color(0xff2357D9),
+                  borderRadius: BorderRadius.circular(10.sp)),
             ),
           ),
         ]));

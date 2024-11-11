@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mini_project/user/user_mechanic_list_appbar.dart';
+import 'package:mini_project/user/user_mechanic_request_list.dart';
 
 class UserPayment extends StatefulWidget {
   const UserPayment({super.key});
@@ -29,7 +31,8 @@ class _UserPaymentState extends State<UserPayment> {
                 ),
               )
             ],
-          ), Row(
+          ),
+          Row(
             children: [
               Padding(
                 padding: EdgeInsets.only(left: 150.w, top: 2.h),
@@ -40,23 +43,35 @@ class _UserPaymentState extends State<UserPayment> {
                 ),
               )
             ],
-          ), Padding(
+          ),
+          Padding(
             padding: EdgeInsets.only(right: 80.r, left: 80.w, top: 300.h),
-            child: Container(
-              child: Center(
-                child: Text(
-                  "Back to home page",
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18.sp,
-                      color: Colors.white),
+            child: InkWell(
+              onTap: () {
+                print("object");
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return UserMechanicList();
+                  },
+                ));
+                ;
+              },
+              child: Container(
+                child: Center(
+                  child: Text(
+                    "Back to home page",
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18.sp,
+                        color: Colors.white),
+                  ),
                 ),
+                width: 250.w,
+                height: 50.h,
+                decoration: BoxDecoration(
+                    color: Color(0xff2357D9),
+                    borderRadius: BorderRadius.circular(10.sp)),
               ),
-              width: 250.w,
-              height: 50.h,
-              decoration: BoxDecoration(
-                  color: Color(0xff2357D9),
-                  borderRadius: BorderRadius.circular(10.sp)),
             ),
           ),
         ],

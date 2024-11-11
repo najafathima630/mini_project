@@ -15,6 +15,7 @@ class MechService extends StatefulWidget {
 class _MechServiceState extends State<MechService> {
   void _showAlertDialog(BuildContext context) {
     AlertDialog alert = AlertDialog(
+      backgroundColor: Color(0xffCFE2FF),
       title: Text("Add Service",
           style: GoogleFonts.poppins(fontWeight: FontWeight.w500)),
       content: SizedBox(
@@ -42,53 +43,31 @@ class _MechServiceState extends State<MechService> {
                       padding: EdgeInsets.only(left: 20.w),
                       child: Container(
                         child: Padding(
-                          padding: EdgeInsets.only(left: 100.w, top: 10.h),
+                          padding: EdgeInsets.only(left: 80.w, top: 10.h),
                           child: Text(
-                            "Done",
+                            "Add",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
-                        height: 40,
-                        width: 200,
+                        height: 50.h,
+                        width: 180.w,
                         decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: Color(0xff2357D9),
                             borderRadius: BorderRadius.circular(10.sp)),
                       ),
                     ),
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 10.h, left: 20.w),
-                    child: Container(
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 10.h, left: 90.w),
-                        child: Text(
-                          "Bookings",
-                          style: TextStyle(
-                              color: Colors.blue, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      width: 200,
-                      height: 40,
-                      decoration: BoxDecoration(
-                          color: Colors.blue[100],
-                          borderRadius: BorderRadius.circular(10.sp)),
-                    ),
-                  )
-                ],
-              )
             ],
           ),
           onPressed: () {
             print("pressed");
             Navigator.of(context).pop(); // Close the dialog
           },
-        ),
+        )
       ],
     );
 
@@ -266,15 +245,9 @@ class _MechServiceState extends State<MechService> {
         Padding(
           padding: EdgeInsets.only(top: 280.h, left: 280.w),
           child: FloatingActionButton(
+            onPressed: () => _showAlertDialog(context),
             shape: CircleBorder(side: BorderSide(width: 1.w)),
             child: Icon(Icons.add),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) {
-                  return AlertDialog();
-                },
-              ));
-            },
           ),
         ),
       ]),
