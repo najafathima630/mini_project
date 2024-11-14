@@ -60,8 +60,8 @@ class _UserMechanicListState extends State<UserMechanicList> {
         ),
         body: TabBarView(
           children: [
-            UserMechanicRequestList(), // Call the first class
-            UserList(),
+            UserList(), // Call the first class
+            UserMechanicRequestList(),
             // Call the second class
           ],
         ),
@@ -78,7 +78,7 @@ class _UserMechanicListState extends State<UserMechanicList> {
             tabs: [
               Tab(
                 child: Text(
-                  'User',
+                  'mechanic',
                   style: TextStyle(
                     // color: Colors.white,
                     fontSize: 16.sp,
@@ -90,7 +90,7 @@ class _UserMechanicListState extends State<UserMechanicList> {
               ),
               Tab(
                 child: Text(
-                  'Mechanic',
+                  'Reguest',
                   style: TextStyle(
                     // color: Colors.white,
                     fontSize: 16.sp,

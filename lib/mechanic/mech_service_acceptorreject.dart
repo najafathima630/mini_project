@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Navigationbar_mechanic.dart';
 import 'mech_rating.dart';
 import 'mech_service_home.dart';
 
@@ -64,7 +65,7 @@ class _MechServiceAcceptorrejectState extends State<MechServiceAcceptorreject> {
                       Row(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(left: 40.w),
+                            padding: EdgeInsets.only(left: 20.w),
                             child: Text(
                               "problem",
                               style: GoogleFonts.poppins(
@@ -72,7 +73,7 @@ class _MechServiceAcceptorrejectState extends State<MechServiceAcceptorreject> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 75.w),
+                            padding: EdgeInsets.only(left: 65.w),
                             child: Text(
                               ":Fuel leaking",
                               style: GoogleFonts.poppins(
@@ -83,7 +84,7 @@ class _MechServiceAcceptorrejectState extends State<MechServiceAcceptorreject> {
                       ),
                       Row(children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 40.w, top: 10.h),
+                          padding: EdgeInsets.only(left: 20.w, top: 10.h),
                           child: Text(
                             "place",
                             style: GoogleFonts.poppins(
@@ -91,7 +92,7 @@ class _MechServiceAcceptorrejectState extends State<MechServiceAcceptorreject> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 99.w, top: 10.h),
+                          padding: EdgeInsets.only(left: 90.w, top: 10.h),
                           child: Text(
                             ":kozhikode beach road",
                             style: GoogleFonts.poppins(
@@ -101,7 +102,7 @@ class _MechServiceAcceptorrejectState extends State<MechServiceAcceptorreject> {
                       ]),
                       Row(children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 40.w, top: 10.h),
+                          padding: EdgeInsets.only(left: 20.w, top: 10.h),
                           child: Text(
                             "Date",
                             style: GoogleFonts.poppins(
@@ -109,7 +110,7 @@ class _MechServiceAcceptorrejectState extends State<MechServiceAcceptorreject> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 107.w),
+                          padding: EdgeInsets.only(left: 97.w),
                           child: Text(
                             ":12/05/2023",
                             style: GoogleFonts.poppins(
@@ -119,7 +120,7 @@ class _MechServiceAcceptorrejectState extends State<MechServiceAcceptorreject> {
                       ]),
                       Row(children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 40.w, top: 10.h),
+                          padding: EdgeInsets.only(left: 20.w, top: 10.h),
                           child: Text(
                             "Time",
                             style: GoogleFonts.poppins(
@@ -127,7 +128,7 @@ class _MechServiceAcceptorrejectState extends State<MechServiceAcceptorreject> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 100.w, top: 10.h),
+                          padding: EdgeInsets.only(left: 97.w, top: 10.h),
                           child: Text(
                             ":10:00 am",
                             style: GoogleFonts.poppins(
@@ -137,7 +138,7 @@ class _MechServiceAcceptorrejectState extends State<MechServiceAcceptorreject> {
                       ]),
                       Row(children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 40.w, top: 10.h),
+                          padding: EdgeInsets.only(left: 20.w, top: 10.h),
                           child: Text(
                             "contact number",
                             style: GoogleFonts.poppins(
@@ -157,21 +158,29 @@ class _MechServiceAcceptorrejectState extends State<MechServiceAcceptorreject> {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(left: 50.w, top: 100.h),
-                            child: Container(
-                              child: Center(
-                                child: Text(
-                                  "Accept",
-                                  style: GoogleFonts.poppins(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 15.sp),
+                            child: InkWell(onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) {
+                                  return navigation_barmechanic();
+                                },
+                              ));
+                            },
+                              child: Container(
+                                child: Center(
+                                  child: Text(
+                                    "Accept",
+                                    style: GoogleFonts.poppins(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 15.sp),
+                                  ),
                                 ),
+                                height: 40.h,
+                                width: 110.w,
+                                decoration: BoxDecoration(
+                                    color: Color(0xff49CD6E),
+                                    borderRadius: BorderRadius.circular(14.r)),
                               ),
-                              height: 40.h,
-                              width: 110.w,
-                              decoration: BoxDecoration(
-                                  color: Color(0xff49CD6E),
-                                  borderRadius: BorderRadius.circular(14.r)),
                             ),
                           ), Row(
                             children: [

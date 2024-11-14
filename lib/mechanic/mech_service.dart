@@ -243,7 +243,7 @@ class _MechServiceState extends State<MechService> {
           ],
         ),
         Padding(
-          padding: EdgeInsets.only(top: 280.h, left: 280.w),
+          padding: EdgeInsets.only(top: 170.h, left: 280.w),
           child: FloatingActionButton(
             onPressed: () => _showAlertDialog(context),
             shape: CircleBorder(side: BorderSide(width: 1.w)),

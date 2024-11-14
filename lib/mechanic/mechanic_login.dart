@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../admin/Navigation_bar.dart';
+import 'Navigationbar_mechanic.dart';
 import 'mechanic_signup.dart';
 
 class MechanicLogin extends StatefulWidget {
@@ -21,7 +22,7 @@ class _MechanicLoginState extends State<MechanicLogin> {
       backgroundColor: Color(0xffCFE2FF),
       body: Form(
           key: form_key,
-          child: Column(
+          child: ListView(
             children: [
               Row(
                 children: [
@@ -31,7 +32,6 @@ class _MechanicLoginState extends State<MechanicLogin> {
                       width: 140.w,
                       height: 140.h,
                       decoration: BoxDecoration(
-                          color: Colors.grey,
                           image: DecorationImage(
                               image: AssetImage("Assets/tow 1.png"))),
                     ),
@@ -126,7 +126,7 @@ class _MechanicLoginState extends State<MechanicLogin> {
                     print("object");
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) {
-                        return navigation_bar();
+                        return navigation_barmechanic();
                       },
                     ));
                   }
@@ -136,7 +136,7 @@ class _MechanicLoginState extends State<MechanicLogin> {
                   padding: EdgeInsets.only(right: 80.r, left: 80.w, top: 130.h),
                   child: Container(
                     child: Padding(
-                      padding: EdgeInsets.only(left: 100.w, top: 10.h),
+                      padding: EdgeInsets.only(left: 80.w, top: 10.h),
                       child: Text(
                         "Login",
                         style: GoogleFonts.poppins(
@@ -152,10 +152,11 @@ class _MechanicLoginState extends State<MechanicLogin> {
                         borderRadius: BorderRadius.circular(10.sp)),
                   ),
                 ),
-              ),Row(
+              ),
+              Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 70.w),
+                    padding: EdgeInsets.only(left: 100.w),
                     child: Text(
                       "Do you have account?",
                       style: GoogleFonts.poppins(

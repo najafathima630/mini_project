@@ -137,7 +137,7 @@ class _UserLoginState extends State<UserLogin> {
                   padding: EdgeInsets.only(right: 80.r, left: 80.w, top: 130.h),
                   child: Container(
                     child: Padding(
-                      padding: EdgeInsets.only(left: 70.w, top: 10.h),
+                      padding: EdgeInsets.only(left: 100.w, top: 10.h),
                       child: Text(
                         "Login",
                         style: GoogleFonts.poppins(
@@ -150,7 +150,7 @@ class _UserLoginState extends State<UserLogin> {
                     height: 50.h,
                     decoration: BoxDecoration(
                         color: Colors.blue,
-                        borderRadius: BorderRadius.circular(10.sp)),
+                        borderRadius: BorderRadius.circular(12.sp)),
                   ),
                 ),
               ),

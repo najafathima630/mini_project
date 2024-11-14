@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../admin/Navigation_bar.dart';
+import 'Navigationbar_mechanic.dart';
 import 'mechanic_login.dart';
 
 class MechanicSignup extends StatefulWidget {
@@ -279,7 +280,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         print("object");
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) {
-                            return navigation_bar();
+                            return navigation_barmechanic();
                           },
                         ));
                       }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Navigationbar_mechanic.dart';
 import 'mech_service_acceptorreject.dart';
 import 'mech_status_reject.dart';
 
@@ -239,7 +240,7 @@ class _MechStatuscompletedState extends State<MechStatuscompleted> {
                     print("object");
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) {
-                        return MechStatuscompleted();
+                        return navigation_barmechanic();
                       },
                     ));
                     ;
@@ -306,7 +307,7 @@ class _MechStatuscompletedState extends State<MechStatuscompleted> {
                     print("object");
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) {
-                        return MechStatuscompleted();
+                        return navigation_barmechanic();
                       },
                     ));
                     ;

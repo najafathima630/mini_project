@@ -196,11 +196,11 @@ class _MechRatingState extends State<MechRating> {
                       )
                     ],
                   ),
-                  width: 320.w,
+                  width: 340.w,
                   height: 200.h,
                   decoration: BoxDecoration(
                       color: Color(0xffCFE2FF),
-                      borderRadius: BorderRadius.circular(10.r)),
+                      borderRadius: BorderRadius.circular(12.r)),
                 ),
               )
             ],
