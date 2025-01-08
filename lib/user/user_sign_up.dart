@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mini_project/admin/Login_page.dart';
 import 'package:mini_project/user/user_login.dart';
+import 'package:mini_project/user/user_mechanic_list_appbar.dart';
 
 import '../admin/Navigation_bar.dart';
 import '../mechanic/mechanic_login.dart';
@@ -16,21 +19,35 @@ class UserSignUp extends StatefulWidget {
 
 class _UserSignUpState extends State<UserSignUp> {
   final form_key = GlobalKey<FormState>();
+  TextEditingController namectrl = TextEditingController();
+  TextEditingController numberctrl = TextEditingController();
+  TextEditingController emailctrl = TextEditingController();
+  TextEditingController passwordctrl = TextEditingController();
+  TextEditingController locationctrl = TextEditingController();
+
+  Future<void> User() async {
+    FirebaseFirestore.instance.collection("user_register").add({
+      "name": namectrl.text,
+      "number": numberctrl.text,
+      "email": emailctrl.text,
+      "password": passwordctrl.text,
+      "location": locationctrl.text,
+      "Status": 0,
+      "profile_path":
+          "https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    });
+    print("Success");
+    Navigator.push(context, MaterialPageRoute(
+      builder: (context) {
+        return UserLogin();
+      },
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Color(0xffCFE2FF),
-      appBar: AppBar(
-        backgroundColor: Color(0xffCFE2FF),
-        leading: IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return UserLogin();
-                },
-              ));
-            },
-            icon: Icon(Icons.arrow_back_ios_new_sharp)),
-      ),
+    return Scaffold(
+      backgroundColor: Color(0xffCFE2FF),
       body: Scaffold(
           backgroundColor: Color(0xffCFE2FF),
           body: Form(
@@ -78,9 +95,9 @@ class _UserSignUpState extends State<UserSignUp> {
                     ],
                   ),
                   Padding(
-                    padding:
-                    EdgeInsets.only(left: 40.w, top: 3.h, right: 40.r),
+                    padding: EdgeInsets.only(left: 40.w, top: 3.h, right: 40.r),
                     child: TextFormField(
+                      controller: namectrl,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Empty username";
@@ -89,8 +106,8 @@ class _UserSignUpState extends State<UserSignUp> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(
-                              10.sp,
-                            )),
+                          10.sp,
+                        )),
                         prefixIconColor: Colors.white,
                         suffixIconColor: Colors.white,
                         hintText: "Enter username",
@@ -114,9 +131,9 @@ class _UserSignUpState extends State<UserSignUp> {
                     ],
                   ),
                   Padding(
-                    padding:
-                    EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
+                      controller: numberctrl,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Empty number";
@@ -125,8 +142,8 @@ class _UserSignUpState extends State<UserSignUp> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(
-                              10.sp,
-                            )),
+                          10.sp,
+                        )),
                         prefixIconColor: Colors.white,
                         suffixIconColor: Colors.white,
                         hintText: "Enter your phone number",
@@ -150,9 +167,9 @@ class _UserSignUpState extends State<UserSignUp> {
                     ],
                   ),
                   Padding(
-                    padding:
-                    EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
+                      controller: emailctrl,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Empty mail";
@@ -161,8 +178,8 @@ class _UserSignUpState extends State<UserSignUp> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(
-                              10.sp,
-                            )),
+                          10.sp,
+                        )),
                         prefixIconColor: Colors.white,
                         suffixIconColor: Colors.white,
                         hintText: "Enter mail",
@@ -170,7 +187,8 @@ class _UserSignUpState extends State<UserSignUp> {
                       ),
                       obscureText: true,
                     ),
-                  ),Row(
+                  ),
+                  Row(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(top: 3.h, left: 40.w),
@@ -183,10 +201,11 @@ class _UserSignUpState extends State<UserSignUp> {
                         ),
                       )
                     ],
-                  ), Padding(
-                    padding:
-                    EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
+                      controller: passwordctrl,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Empty password";
@@ -195,8 +214,8 @@ class _UserSignUpState extends State<UserSignUp> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(
-                              10.sp,
-                            )),
+                          10.sp,
+                        )),
                         prefixIconColor: Colors.white,
                         suffixIconColor: Colors.white,
                         hintText: "Enter password",
@@ -205,21 +224,37 @@ class _UserSignUpState extends State<UserSignUp> {
                       obscureText: true,
                     ),
                   ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    child: TextFormField(
+                      controller: locationctrl,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Empty location";
+                        }
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(
+                          10.sp,
+                        )),
+                        prefixIconColor: Colors.white,
+                        suffixIconColor: Colors.white,
+                        hintText: "Enter location",
+                        filled: true,
+                      ),
+                      obscureText: true,
+                    ),
+                  ),
                   InkWell(
                     onTap: () {
                       if (form_key.currentState!.validate()) {
-                        print("object");
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) {
-                            return navigation_bar();
-                          },
-                        ));
+                        User();
                       }
-                      ;
                     },
                     child: Padding(
                       padding:
-                      EdgeInsets.only(right: 80.r, left: 80.w, top: 50.h),
+                          EdgeInsets.only(right: 80.r, left: 80.w, top: 50.h),
                       child: Container(
                         child: Center(
                           child: Text(
@@ -239,6 +274,7 @@ class _UserSignUpState extends State<UserSignUp> {
                     ),
                   ),
                 ],
-              ))),);
+              ))),
+    );
   }
 }

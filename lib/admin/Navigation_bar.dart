@@ -37,18 +37,18 @@ class _navigation_barState
       bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: Icon(Icons.home,color: Colors.black,),
                 label: 'Home',
                 backgroundColor: Colors.white),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.account_balance_wallet,
-                  color: Colors.grey,
+                  color: Colors.black,
                 ),
                 label: 'payment',
                 backgroundColor: Colors.white),
             BottomNavigationBarItem(
-              icon: Icon(Icons.message, color: Colors.grey),
+              icon: Icon(Icons.message, color: Colors.black),
               label: 'Notification',
               backgroundColor: Colors.white,
             ),

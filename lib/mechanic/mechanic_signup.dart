@@ -1,3 +1,5 @@
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +18,37 @@ class MechanicSignup extends StatefulWidget {
 
 class _MechanicSignupState extends State<MechanicSignup> {
   final form_key = GlobalKey<FormState>();
+  TextEditingController namectrl = TextEditingController();
+  TextEditingController numberctrl = TextEditingController();
+  TextEditingController emailctrl = TextEditingController();
+  TextEditingController experiencectrl = TextEditingController();
+  TextEditingController shopnamectrl = TextEditingController();
+  TextEditingController passwordctrl = TextEditingController();
+  TextEditingController locationctrl = TextEditingController();
+  TextEditingController servicectrl = TextEditingController();
+
+  Future<void> Mechanic() async {
+    FirebaseFirestore.instance.collection("mechanic_register").add({
+      "name": namectrl.text,
+      "number": numberctrl.text,
+      "email": emailctrl.text,
+      "password": passwordctrl.text,
+      "location": locationctrl.text,
+      "experience": experiencectrl.text,
+      "shopname": shopnamectrl.text,
+      "Service":servicectrl.text,
+      "Status": 0,
+      "profile_path":
+          "https://images.pexels.com/photos/213780/pexels-photo-213780.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    });
+    print("Success");
+    Navigator.push(context, MaterialPageRoute(
+      builder: (context) {
+        return MechanicLogin();
+      },
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,6 +114,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   Padding(
                     padding: EdgeInsets.only(left: 40.w, top: 3.h, right: 40.r),
                     child: TextFormField(
+                      controller: namectrl,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Empty username";
@@ -96,7 +130,6 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         hintText: "Enter username",
                         filled: true,
                       ),
-                      obscureText: true,
                     ),
                   ),
                   Row(
@@ -116,6 +149,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   Padding(
                     padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
+                      controller: numberctrl,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Empty number";
@@ -131,7 +165,6 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         hintText: "Enter your phone number",
                         filled: true,
                       ),
-                      obscureText: true,
                     ),
                   ),
                   Row(
@@ -151,6 +184,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   Padding(
                     padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
+                      controller: emailctrl,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Empty mail";
@@ -166,7 +200,6 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         hintText: "Enter mail",
                         filled: true,
                       ),
-                      obscureText: true,
                     ),
                   ),
                   Row(
@@ -186,6 +219,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   Padding(
                     padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
+                      controller: experiencectrl,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Empty experience";
@@ -201,7 +235,6 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         hintText: "Enter your experience",
                         filled: true,
                       ),
-                      obscureText: true,
                     ),
                   ),
                   Row(
@@ -221,6 +254,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   Padding(
                     padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
+                      controller: shopnamectrl,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Empty name";
@@ -236,7 +270,6 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         hintText: "Enter your shop name",
                         filled: true,
                       ),
-                      obscureText: true,
                     ),
                   ),
                   Row(
@@ -256,6 +289,7 @@ class _MechanicSignupState extends State<MechanicSignup> {
                   Padding(
                     padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
                     child: TextFormField(
+                      controller: passwordctrl,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Empty password";
@@ -271,20 +305,81 @@ class _MechanicSignupState extends State<MechanicSignup> {
                         hintText: "Enter password",
                         filled: true,
                       ),
-                      obscureText: true,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 3.h, left: 40.w),
+                        child: Text(
+                          "Enter Location",
+                          style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.sp),
+                        ),
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    child: TextFormField(
+                      controller: locationctrl,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Empty location";
+                        }
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(
+                          10.sp,
+                        )),
+                        prefixIconColor: Colors.white,
+                        suffixIconColor: Colors.white,
+                        hintText: "Enter location",
+                        filled: true,
+                      ),
+                    ),
+                  ),Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 3.h, left: 40.w),
+                        child: Text(
+                          "Enter your service",
+                          style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.sp),
+                        ),
+                      )
+                    ],
+                  ), Padding(
+                    padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 3.h),
+                    child: TextFormField(
+                      controller: servicectrl,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Empty service";
+                        }
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(
+                              10.sp,
+                            )),
+                        prefixIconColor: Colors.white,
+                        suffixIconColor: Colors.white,
+                        hintText: "Enter service",
+                        filled: true,
+                      ),
                     ),
                   ),
                   InkWell(
                     onTap: () {
                       if (form_key.currentState!.validate()) {
-                        print("object");
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) {
-                            return navigation_barmechanic();
-                          },
-                        ));
+                        Mechanic();
                       }
-                      ;
                     },
                     child: Padding(
                       padding:

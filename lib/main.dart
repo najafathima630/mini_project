@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mini_project/splash/splash_screen.dart';
@@ -24,19 +25,24 @@ import 'admin/admin_notification.dart';
 import 'admin/admin_payment.dart';
 import 'admin/admin_user.dart';
 import 'admin/tap_bar.dart';
+import 'firebase_options.dart';
 import 'mechanic/Navigationbar_mechanic.dart';
-import 'mechanic/mech_edit_profile.dart';
 import 'mechanic/mech_profile.dart';
+import 'mechanic/mech_editprofile.dart';
 import 'mechanic/mech_rating.dart';
 import 'mechanic/mech_service.dart';
 import 'mechanic/mech_service_acceptorreject.dart';
-import 'mechanic/mech_service_home.dart';
+import 'mechanic/mech_service_home_tabbar.dart';
 import 'mechanic/mech_status_reject.dart';
 import 'mechanic/mech_statuscompleted.dart';
 import 'mechanic/mechanic_login.dart';
 import 'mechanic/mechanic_signup.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -72,7 +78,7 @@ class MyApp extends StatelessWidget {
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                 useMaterial3: true,
               ),
-              home: UserOrMechPage(),
+              home: SplashScreen(),
             ));
   }
 }

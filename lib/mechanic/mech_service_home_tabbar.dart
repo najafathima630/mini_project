@@ -5,6 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../admin/admin_home_mechanic.dart';
 import '../admin/admin_homeuser.dart';
 import 'meach_service_home2.dart';
+import 'mech_profile.dart';
+import 'mech_notifiction.dart';
+import 'mech_editprofile.dart';
 import 'mech_service_home1.dart';
 
 class mech_service_home extends StatelessWidget {
@@ -15,17 +18,29 @@ class mech_service_home extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xffE8F1FF),
-          leading: CircleAvatar(
-            backgroundImage: AssetImage("Assets/Ellipse 9.png"),
+          leading: InkWell(onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return MechEditProfile();
+            },));
+          },
+            child: CircleAvatar(
+              backgroundImage: AssetImage("Assets/Ellipse 9.png"),
+            ),
           ),
           actions: [
-            Container(
-              height: 30.h,
-              width: 30.w,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  image: DecorationImage(
-                      image: AssetImage("Assets/notification 2.png"))),
+            InkWell(onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return MechNotifiction();
+              },));
+            },
+              child: Container(
+                height: 30.h,
+                width: 30.w,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    image: DecorationImage(
+                        image: AssetImage("Assets/notification 2.png"))),
+              ),
             )
           ],
           bottom: TabBar(

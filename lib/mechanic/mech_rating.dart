@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Navigationbar_mechanic.dart';
 import 'mech_service.dart';
 
 class MechRating extends StatefulWidget {
@@ -22,7 +23,7 @@ class _MechRatingState extends State<MechRating> {
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
-                  return MechService();
+                  return navigation_barmechanic();
                 },
               ));
             },

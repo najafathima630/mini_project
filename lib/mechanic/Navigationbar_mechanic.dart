@@ -4,7 +4,7 @@ import 'package:mini_project/admin/tap_bar.dart';
 
 import 'mech_rating.dart';
 import 'mech_service.dart';
-import 'mech_service_home.dart';
+import 'mech_service_home_tabbar.dart';
 
 
 class navigation_barmechanic extends StatefulWidget {
@@ -21,7 +21,7 @@ class _navigation_barmechanicState
 
   static  List<dynamic> _widgetoption = [
     mech_service_home(),
-    MechService(),
+    Mech_Service(),
     MechRating(),
   ];
 
@@ -38,7 +38,7 @@ class _navigation_barmechanicState
       bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.home,
+                icon: Icon(Icons.manage_accounts_sharp,
                 color: Colors.black,
                 ),
                 label: 'Request',

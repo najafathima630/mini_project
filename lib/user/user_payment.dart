@@ -4,10 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project/user/user_mechanic_list_appbar.dart';
 import 'package:mini_project/user/user_mechanic_request_list.dart';
+import 'package:mini_project/user/user_rating_page.dart';
 
 class UserPayment extends StatefulWidget {
-  const UserPayment({super.key});
-
+  const UserPayment({super.key, required this. id, required this.name});
+final id;
+final name;
   @override
   State<UserPayment> createState() => _UserPaymentState();
 }
@@ -51,7 +53,7 @@ class _UserPaymentState extends State<UserPayment> {
                 print("object");
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) {
-                    return UserMechanicList();
+                    return UserRatingPage();
                   },
                 ));
                 ;

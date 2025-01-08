@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,62 +30,48 @@ class _AdminNotificationState extends State<AdminNotification> {
       body: Column(
         children: [
           Expanded(
-            child: ListView.separated(
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 20.w,
-                    height: 20.h,
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.only(left: 30.w, right: 30.r),
-                    child: Container(
-                      child: Column(children: [
-                        Row(
-                          children: [
-                            Text(
-                              "Heading",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 15.sp, fontWeight: FontWeight.w500),
+            child: StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection("admindetails")
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  if (!snapshot.hasData) {
+                    return Center(child: Text("no data found"));
+                  }
+                  var admin = snapshot.data!.docs;
+                  return ListView.builder(
+                    itemCount: admin.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                          padding: EdgeInsets.only(
+                              left: 20.w, right: 20.r, top: 10.h),
+                          child: Container(
+                            width: 200.w,
+                            height: 200.h,
+                            child: Card(
+                              child: ListTile(
+                                title: Text(
+                                  admin[index]["Heading"],
+                                ),
+                                subtitle: Text(
+                                  admin[index]["content"],
+                                ),trailing: IconButton(
+                                  onPressed: () {
+                                    FirebaseFirestore.instance
+                                        .collection("admindetails")
+                                        .doc(admin[index].id)
+                                        .delete();
+                                  },
+                                  icon: Icon(Icons.delete)),
+                              ),
                             ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "Lorem ipsum is a placeholder text commonly",
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500, fontSize: 15.sp),
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "used to demonstrate the visual form of a",
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500, fontSize: 15.sp),
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "document or a typeface without relying  . . . . ",
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500, fontSize: 15.sp),
-                            )
-                          ],
-                        )
-                      ]),
-                      width: 360.w,
-                      height: 130.h,
-                      color: Colors.white,
-                    ),
+                          ));
+                    },
                   );
-                },
-                itemCount: 6),
+                }),
           ),
           Padding(
             padding: EdgeInsets.only(left: 260.w),

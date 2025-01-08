@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mini_project/user/user_list.dart';
 import 'package:mini_project/user/user_mechanic_request_list.dart';
+import 'package:mini_project/user/user_notification.dart';
+import 'package:mini_project/user/user_profile.dart';
 
 class UserMechanicList extends StatefulWidget {
   const UserMechanicList({super.key});
@@ -19,17 +21,32 @@ class _UserMechanicListState extends State<UserMechanicList> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xffE8F1FF),
-          leading: CircleAvatar(
-            backgroundImage: AssetImage("Assets/girl.jpg"),
+          leading: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return UserProfile();
+                },
+              ));
+            },
+            child: CircleAvatar(
+              backgroundImage: AssetImage("Assets/girl.jpg"),
+            ),
           ),
           actions: [
-            Container(
-              height: 50.h,
-              width: 50.w,
-              decoration: BoxDecoration(
-                  color: Color(0xffE8F1FF),
-                  image: DecorationImage(
-                      image: AssetImage("Assets/notification 2.png"))),
+            InkWell(onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return UserNotification();
+              },));
+            },
+              child: Container(
+                height: 50.h,
+                width: 50.w,
+                decoration: BoxDecoration(
+                    color: Color(0xffE8F1FF),
+                    image: DecorationImage(
+                        image: AssetImage("Assets/notification 2.png"))),
+              ),
             )
           ],
           title: Container(

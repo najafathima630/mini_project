@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,92 +18,148 @@ class _AdminHome1State extends State<AdminHome1> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffE8F1FF),
-      body: InkWell(onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          return AdminMechanic();
-        },));
-      },
-        child: ListView.separated(
-            itemBuilder: (context, index) {
-              return Container(
-                width: 20.w,
-                height: 20.h,
-              );
-            },
-            separatorBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.only(left: 30.w, right: 30.r),
-                child: Container(
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 40.h, left: 20.w),
+      body: Column(children: [
+        Expanded(
+            child: StreamBuilder(
+                stream: FirebaseFirestore.instance
+                    .collection("mechanic_register")
+                    .snapshots(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  if (!snapshot.hasData) {
+                    return Center(child: Text("no data found"));
+                  }
+                  var mechan = snapshot.data!.docs;
+                  return ListView.builder(
+                    itemCount: mechan.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(top: 10, right: 20, left: 20),
+                        child: Card(
+                            color: Colors.white,
                             child: Container(
-                              height: 50.h,
-                              width: 50.w,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage("Assets/man.png"))),
-                            ),
-                          ),
-                          Column(
-                            children: [
-                              Row(
+                              width: 200,
+                              height: 100,
+                              child: Column(
                                 children: [
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 10.w, top: 10.h),
-                                    child: Text(
-                                      "Name",
-                                      style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 18.sp),
-                                    ),
-                                  ),
+                                  InkWell(
+                                      onTap: () {
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                          builder: (context) {
+                                            return AdminMechanic(
+                                              id: mechan[index].id,
+                                            );
+                                          },
+                                        ));
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 30.w, right: 30.r),
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      top: 10.h, left: 10.w),
+                                                  child: Container(
+                                                    height: 50.h,
+                                                    width: 50.w,
+                                                    decoration: BoxDecoration(
+                                                        image: DecorationImage(
+                                                            image: AssetImage(
+                                                                "Assets/man.png"))),
+                                                  ),
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 10.w,
+                                                                  top: 10.h),
+                                                          child: Text(
+                                                            mechan[index]
+                                                                ["name"],
+                                                            style: GoogleFonts
+                                                                .poppins(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontSize:
+                                                                        18.sp),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 20.w),
+                                                          child: Text(
+                                                            mechan[index]
+                                                                ["number"],
+                                                            style: GoogleFonts
+                                                                .poppins(
+                                                                    fontSize:
+                                                                        16.sp,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500),
+                                                          ),
+                                                          // ),IconButton(
+                                                          //     onPressed: () {
+                                                          //       FirebaseFirestore.instance
+                                                          //           .collection("mechanic_register")
+                                                          //           .doc(mechan[index].id)
+                                                          //           .delete();
+                                                          //     },
+                                                          //     icon: Icon(Icons.delete)),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 10.w),
+                                                          child: Text(
+                                                            mechan[index]
+                                                                ["experience"]??"no data",
+                                                            style: GoogleFonts
+                                                                .poppins(
+                                                                    fontSize:
+                                                                        16.sp,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500),
+                                                          ),
+                                                        )
+                                                      ],
+                                                    )
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ))
                                 ],
                               ),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 20.w),
-                                    child: Text(
-                                      "MobileNumber",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 10.w),
-                                    child: Text(
-                                      "service",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                  width: 350.w,
-                  height: 130.h,
-                  color: Colors.white,
-                ),
-              );
-            },
-            itemCount: 6),
-      ),
+                            )),
+                      );
+                    },
+                  );
+                }))
+      ]),
     );
   }
 }

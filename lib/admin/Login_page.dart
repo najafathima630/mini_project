@@ -4,10 +4,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+import '../user_or_mech_page.dart';
 import 'Navigation_bar.dart';
-import 'admin_homeuser.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -18,11 +17,25 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final form_key = GlobalKey<FormState>();
+  TextEditingController namectrl = TextEditingController();
+  TextEditingController passwordctrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffCFE2FF),
+      appBar: AppBar(
+        backgroundColor: Color(0xffCFE2FF),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return UserOrMechPage();
+                },
+              ));
+            },
+            icon: Icon(Icons.arrow_back_ios_new_sharp)),
+      ),
       body: Form(
           key: form_key,
           child: ListView(
@@ -35,7 +48,6 @@ class _LoginPageState extends State<LoginPage> {
                       width: 140.w,
                       height: 140.h,
                       decoration: BoxDecoration(
-
                           image: DecorationImage(
                               image: AssetImage("Assets/tow 1.png"))),
                     ),
@@ -45,9 +57,9 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 150.w, top: 30.h),
+                    padding: EdgeInsets.only(left: 100.w, top: 30.h),
                     child: Text(
-                      "LOGIN",
+                      "ADMINLOGIN",
                       style: GoogleFonts.poppins(
                           fontSize: 30.sp, fontWeight: FontWeight.bold),
                     ),
@@ -71,8 +83,9 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: EdgeInsets.only(left: 40.w, top: 20.h, right: 40.r),
                 child: TextFormField(
+                  controller: namectrl,
                   validator: (value) {
-                    if (value!.isEmpty) {
+                    if (value == null || value.isEmpty) {
                       return "Empty username";
                     }
                   },
@@ -86,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: "Enter username",
                     filled: true,
                   ),
-                  obscureText: true,
+
                 ),
               ),
               Row(
@@ -96,18 +109,15 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text(
                       "Enter Password",
                       style: GoogleFonts.poppins(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.sp),
-                    ),
-                  )
-                ],
+                          color: Colors.black
+                      ),),)],
               ),
               Padding(
                 padding: EdgeInsets.only(right: 40.r, left: 40.w, top: 20.h),
                 child: TextFormField(
+                  controller: passwordctrl,
                   validator: (value) {
-                    if (value!.isEmpty) {
+                    if (value == null || value.isEmpty) {
                       return "Empty password";
                     }
                   },
@@ -127,14 +137,19 @@ class _LoginPageState extends State<LoginPage> {
               InkWell(
                 onTap: () {
                   if (form_key.currentState!.validate()) {
-                    print("object");
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) {
-                        return navigation_bar();
-                      },
-                    ));
+                    if (namectrl.text == "naja" &&
+                        passwordctrl.text == "najazz") {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return navigation_bar();
+                        },
+                      ));
+                    } else
+                      (ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text("invalid username or password"),
+                        backgroundColor: Colors.black,
+                      )));
                   }
-                  ;
                 },
                 child: Padding(
                   padding: EdgeInsets.only(right: 80.r, left: 80.w, top: 130.h),

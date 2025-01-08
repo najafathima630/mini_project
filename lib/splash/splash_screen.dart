@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +15,19 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    super.initState();
+    // Navigate to Home screen after 3 seconds
+    Timer(const Duration(seconds: 3), () {
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => UserOrMechPage()),
+        );
+      }
+    });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffCFE2FF),
@@ -22,13 +37,14 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               Padding(
                 padding: EdgeInsets.only(top: 400.h, left: 130.w),
-                child: InkWell(onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) {
-                      return UserOrMechPage();
-                    },
-                  ));
-                },
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) {
+                        return UserOrMechPage();
+                      },
+                    ));
+                  },
                   child: Container(
                     width: 160.w,
                     height: 160.h,
